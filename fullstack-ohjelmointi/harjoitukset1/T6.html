@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tehtävä 6</title>
+</head>
+<body>
+    <p id="display"></p>
+
+
+
+  <script>
+        let taulukko=[11,22,33,44];
+
+        let summa = 0;
+        let lukumaara = 0;
+        let keskiarvo;
+        let tulosrivit ="";
+
+        for (let num of taulukko){
+            tulosrivit+="taulukko"+ "["+taulukko.indexOf(num)+"]" + " = " + num +"<br>"
+
+            summa+=num;
+            lukumaara+=1
+
+        }
+
+        keskiarvo= (summa/lukumaara).toFixed(1);
+
+        document.getElementById("display").innerHTML= "Taulukon alkiot ovat  "+"<br><br>"+
+                                                    tulosrivit+"<br>"+
+                                                    "Taulukon alkioiden "+"<br><br>"+
+                                                    "Lukumäära: " +lukumaara +"<br>"+
+                                                    "summa: "+ summa+ "<br>"+
+                                                    "keskiarvio: " + keskiarvo
+
+    </script>
+
+    
+   
+    
+</body>
+</html>

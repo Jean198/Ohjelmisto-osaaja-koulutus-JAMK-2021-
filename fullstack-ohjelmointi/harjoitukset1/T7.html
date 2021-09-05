@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="display"></p>
+
+    
+
+
+
+
+    <script>
+        function isALeapYear(year){
+
+            if ((year%4==0) && (year%100!=0)){
+                
+                return(year + " is a leap year!")
+            }else if((year%100==0)&&(year%400==0)){
+                
+                return(year + " is a leap year!")
+            }
+            else{
+                
+                return (year + " is not a leap year")
+            }
+
+        }
+        document.getElementById("display").innerHTML= isALeapYear(1991) + "<br>"+
+                                                      isALeapYear(1992) + "<br>"+
+                                                      isALeapYear(1900) + "<br>"+
+                                                      isALeapYear(2000) + "<br>"
+
+    </script>
+    
+</body>
+</html>

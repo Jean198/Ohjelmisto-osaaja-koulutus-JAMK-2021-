@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tehtävä 4</title>
+</head>
+<body>
+
+
+    <script>
+        function printLargestNum(n1,n2,n3){
+           let largest=0;
+
+           if (n1>n2){
+               largest=n1
+           }
+           else{
+               largest=n2
+           }
+           if(n3>largest){
+               largest=n3
+           }
+
+           console.log("Given three numbers "+ n1+" "+ n2 + " "+ n3+ " the largest number is " + largest);
+        }
+
+        let n1=3;
+        let n2= 5;
+        let n3= 1;
+
+        printLargestNum(n1,n2,n3)
+    </script>
+    
+</body>
+</html>
