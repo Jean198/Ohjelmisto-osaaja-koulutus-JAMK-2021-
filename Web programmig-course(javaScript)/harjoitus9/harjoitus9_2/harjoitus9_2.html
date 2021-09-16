@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harjoitus9_1</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <style>
+        body {width: 400px; margin: auto}
+
+        .box {
+            border: 1px dashed #000; padding: 15px; background-color: #adbed8;
+          }
+       
+      
+       </style>
+</head>
+<body>
+    <div id="ratkaisu" class="box"></div>
+
+    <script type="text/babel">
+        class Dataloader extends React.Component {
+          constructor(props) {
+          super(props);
+          this.state = {highscores: [],loaded: false};
+          this.reload = this.reload.bind(this);
+          
+        }
+
+        //-----------------------------------------------------------------------------------------------------
+        getHighscores() {
+            $.ajax({
+              type: "Get",
+              url: "highscoreData.json",
+              dataType: "json",
+              
+            })
+              .done(data => {
+                
+                setTimeout(() => this.setState({highscores: data.highscoreData, loaded:true}), 3000);
+              })
+              .fail(() => {
+                alert("Unable to load the file");
+              });
+
+              
+          }
+
+        //-----------------------------------------------------------------------------------------------------
+
+        reload() {
+            this.setState({highscores: [],loaded: false});
+            this.getHighscores();
+          }
+        //-----------------------------------------------------------------------------------------------------
+    
+  
+        render() {
+          
+          if (this.state.loaded) {
+
+            return ( 
+              <div>
+                <ul> {
+                  this.state.highscores.map((indiv_score) =>
+                  <li key = {indiv_score}>{indiv_score.name}: {indiv_score.score}</li>
+                  )
+                } </ul>
+                <button onClick = {this.reload}>Load again</button>
+              </div>
+              );
+
+           
+          }
+          else{
+            window.onload=()=>{this.reload()};
+            return ( 
+
+              <button onClick = {this.reload}>Loading...</button>
+              );
+            
+          }
+        
+        
+        }
+ 
+      }
+//-----------------------------------------------------------------------------------------------------------------------  
+      
+      ReactDOM.render( 
+        <Dataloader/>,
+        document.getElementById("ratkaisu")
+      );
+
+    </script>
+    
+</body>
+</html>

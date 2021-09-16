@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width:500px;
+            margin: 0 auto;
+            border: solid;
+            padding:20px;
+            text-align: center;
+
+        }
+
+        #kuva1,#kuva2,#kuva3{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        #links{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="links">
+            <a href="#" id="kuva1">KUVA1</a>
+            |
+            <a href="#" id="kuva2">KUVA2</a>
+            |
+            <a href="#" id="kuva3">KUVA3</a>
+
+            
+            
+        </div>
+        <img src="kuva1.png" alt="" id="display">
+        
+    </div>
+
+    <script>
+        
+        document.getElementById("kuva1").onclick=function(){
+            displayimg= document.getElementById("display").src="kuva1.png";
+            }
+        document.getElementById("kuva2").onclick=function(){
+                displayimg= document.getElementById("display").src="kuva2.png";
+                }
+        document.getElementById("kuva3").onclick=function(){
+                    displayimg= document.getElementById("display").src="kuva3.png";
+                    }
+    </script>
+    
+</body>
+</html>

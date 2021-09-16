@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #container{
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background-color:#ADBED8 ;
+            padding: 8px;
+            margin-top: 100px;
+            border: dashed;
+
+            text-align: center;
+        }
+
+        #inputs{
+            margin: 10px auto;
+            
+
+           
+        }
+
+        #submit{
+            background-color: #006699;
+            color:white;
+            width:250px;
+            margin-left: 20px;
+            padding: 6px;
+            border-radius: 5px;
+        }
+
+        #result1,#result2{
+            font-weight: 600;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Vauhtilaskin</h1>
+        
+        <div id="inputs">
+            Tunnit: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="input1" value="1"><br>
+         </div>
+        <div id="inputs">
+        Minuutit:&nbsp;&nbsp;&nbsp;<input type="text" id="input2" value="13"><br>
+        </div>
+
+        <div id="inputs">
+           Sekunnit:&nbsp;&nbsp;<input type="text" id="input3" value="13"><br>
+        </div>
+        <div id="inputs">
+            Kilometrit: <input type="text" id="input4" value="20">
+        </div>
+
+        <div>
+            
+            <input type="submit" id="submit" value="Laske vauhdit" onclick="overallFunction()">
+        </div>
+
+        <div id="results">
+            <p id=result1></p>
+            <p id=result2></p>
+        </div>
+
+
+    </div>
+
+    <script>
+
+        function overallFunction(){
+//Inputs capturing--------------------------------------------------------------------------------------------------------------
+        let hoursInput = document.getElementById("input1").value;
+        let minutesInput= document.getElementById("input2").value;
+        let secondsInput= document.getElementById("input3").value;
+        let kilometersInput= document.getElementById("input4").value;
+//Declaring the class and its methods--------------------------------------------------------------------------------------------
+        class speedCalculator{
+            constructor(hrs, mins, secs,km){
+                this.km=km;
+                this.hrs=hrs;
+                this.mins=mins;
+                this.secs=secs;
+    
+            }
+    
+            calculateKmPace(){
+    
+                let hours= parseInt(this.hrs)+parseInt((this.mins)*60+ parseInt(this.secs))/3600;
+                let kmh=(this.km/hours).toFixed(2)
+                return kmh
+            }
+    
+            calculateMinPerKmPace(){
+                let seconds= parseInt (this.hrs) *3600 + parseInt (this.mins) * 60 + parseInt (this.secs);
+    
+    
+               let hoursperkm=1/this.calculateKmPace();
+               let minutes=Math.floor(hoursperkm*60);
+               return minutes;
+            }
+    
+            calculateSecPerKmPace(){
+                let seconds= Math.round(((1/this.calculateKmPace())*60-this.calculateMinPerKmPace())*60);
+                return seconds;
+            }
+        }
+
+    // Creating a new object-----------------------------------------------------------------------------------------------------
+        let calculator= new speedCalculator(
+             hoursInput,
+             minutesInput,
+             secondsInput,
+             kilometersInput,
+    
+         );
+    //  Attaching the results to the paragraphs elements---------------------------------------------------------------------------
+         document.getElementById("result1").innerHTML=calculator.calculateKmPace()+" "+"km/h";
+
+         document.getElementById("result2").innerHTML=calculator.calculateMinPerKmPace()+":"+calculator.calculateSecPerKmPace()+"/km";
+}
+
+</script>
+    
+</body>
+</html>

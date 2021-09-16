@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width:300px;
+            
+            border: solid;
+            padding: 20px;
+            margin: 0 auto;
+            
+        }
+
+        #display{
+            width: 90%;
+            height:100px;
+            border:dashed;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <form action="">
+
+            </form>
+            Valitse juhlväri: <br>
+            <select name="name" id="select" onchange="displayColorCode()">
+                <option id="blue" value="">No color selected</option>
+                <option id="blue" value="#00FF00">lime</option>
+                <option id="green" value="#00FFFF">cyan</option>
+                <option id="yellow" value="#FFFF00">yellow</option>
+                <option id="yellow" value="#C0C0C0">silver</option>
+                <option id="yellow" value="#FF0000">red</option>
+            </select>
+
+            
+        </div>
+        Mikä juhla? <br>
+        <input type="textarea" id="input"><br>
+        <input type="submit" name="" id="changecolor" value="Vaihda valittu taustaväri" onclick="changebackgroundcolor()">
+
+        <div id="display">
+            <h3>Tulosalue</h3>
+            <p >Valittu: <span id="colorcode"></span></p>
+            <p id="juhla"></p>
+
+        </div>
+
+    </div>
+
+    <script>
+        function displayColorCode(){
+                var colors= document.getElementById("select");
+                var selectedcolor= colors.options[colors.selectedIndex].value;
+                document.getElementById("colorcode").innerHTML=selectedcolor;
+                return selectedcolor;
+            }
+        function changebackgroundcolor(){
+                 document.getElementById("display").style.backgroundColor= displayColorCode();
+        }
+        document.getElementById('input').addEventListener("keyup", displayjuhla);
+
+        function displayjuhla(){
+            document.getElementById("juhla").innerHTML= document.getElementById("input").value;
+        }
+    </script>
+    
+</body>
+</html>

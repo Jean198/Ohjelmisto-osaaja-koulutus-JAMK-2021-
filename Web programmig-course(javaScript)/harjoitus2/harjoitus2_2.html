@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #first{
+        margin-bottom: 20px;
+    }
+</style>
+    
+
+    
+</head>
+<body>
+    <h3>Taulukon [11,22,33,44] läpikäyntiä</h3>
+    <p>tulostamista ja keskeisten suureiden laskemista anonyymeillä funktioilla</p>
+    <hr>
+    <div id="first">
+        Alkiot ovat: <br><br>
+    </div>
+    <div id="results">
+
+    </div>
+
+    <script>
+        let arr=[11,22,33,44];
+
+        let arrPrint= function(arr){
+        
+        for( let i = 0; i < arr.length; i++){
+            document.getElementById("first").innerHTML+="taulukko["+i+"]="+" "+arr[i] + "<br/>"
+
+         }
+         
+           
+        }
+ //---------------------------------------------------------------------------------------------------       }
+
+        let arrCount= function(){
+            count=0;
+            for( let i = 0; i <arr.length; i++){
+                count+=1;
+            }
+            return count;
+
+
+        }
+//---------------------------------------------------------------------------------------------------   
+
+        let arrSum=function(){
+            let sum=0;
+            for( let i = 0; i < count; i++){
+                sum=sum+arr[i];
+                
+            }
+            return sum;
+        }
+//---------------------------------------------------------------------------------------------------
+
+        let arrAvg=function(){
+
+        let avg=arrSum(arr)/arrCount(arr);
+
+        return avg;
+        
+    }
+//---------------------------------------------------------------------------------------------------
+    function writeResults(){
+
+            arrPrint(arr); 
+            document.write("<br>"+"<br>")
+            document.getElementById("results").innerHTML=  "Lukumäärä on: "+ arrCount(arr)+"<br>"+"Summa on: "+
+                                                           arrSum(arr)+"<br>"+"Keskiarvo on: "+ arrAvg(arr)+"<br>"
+                                                           
+            
+        }
+//---------------------------------------------------------------------------------------------------        
+window.onload=writeResults()
+    </script>
+
+    
+    
+    
+</body>
+</html>

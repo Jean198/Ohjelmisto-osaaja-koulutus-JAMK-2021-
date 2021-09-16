@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="9style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500&family=Exo:ital,wght@0,300;0,400;1,200&family=Overpass:wght@300;400&display=swap" rel="stylesheet"> 
+    <title>Tietokannat-Harjoitus9</title>
+</head>
+<body>
+    <div id="container">
+        <div id="title"> 
+            <h1>Tietokannat-harjoitus 9</h1>
+            <a href="harjoitus9/tordb.txt">Link to the txt file that contains all the queries</a>
+        </div>
+        
+        <div id="body">
+            
+            <div >
+                <h2>9.1. ER</h2>
+                
+                <img src="harjoitus9/EER.png" alt="">
+    
+            </div>
+            <div >
+
+                <h2>9.2.a. EER</h2>
+                <pre>
+INSERT INTO personCharacter(personCharacterName,personCharacterDescription) 
+VALUES("Professional expert","Registered certified expert with many years of work experience"), 
+        ("Amateur","with no work experience");
+                    
+                 </pre>
+
+                <img src="harjoitus9/2.A.jpg" alt="">
+                <pre>
+INSERT INTO person(personId,personName,personCharacterId)
+VALUES(1,"Sanna",2),
+      (2,"Maunu",2),
+      (3,"Jaana",2),
+      (4,"Henrik",1),
+      (5,"Daavid",1)
+
+                </pre>
+                <img src="harjoitus9/2.A.1.jpg" alt="">
+
+    
+            </div>
+            <div >
+                <h2>9.2.b EER</h2>
+                <pre>
+INSERT INTO skillGroup(skillGroupName,skillGroupDescription)
+VALUES("Technical skills","TEchnical Lorem Ipsum is simply dummy text of the printing"),
+      ("Operating skills","Operating Lorem Ipsum is simply dummy text of the printing"),
+      ("Environment implementation skills","Environment Lorem Ipsum is simply dummy text of the printing");
+
+                </pre>
+                <img src="harjoitus9/2.B.jpg" alt="">
+                <pre>
+INSERT INTO skills(skillName,skillDescription,skillExperience,SkillGroupId)
+VALUES("Laatu","Laatu Lorem Ipsum is simply dummy..","Laatu Lorem Ipsum is simply dummy..",1),
+      ("Resurssit","Resurssit Lorem Ipsum is simply dummy..","Resurssit Lorem Ipsum is simply dummy..",1),
+      ("Itsevarmuus","Itsevarmuus Lorem Ipsum is simply dummy..","Itsevarmuus Lorem Ipsum is simply dummy..",2),
+      ("Rentous","Rentous Lorem Ipsum is simply dummy..","Rentous Lorem Ipsum is simply dummy..",2),
+      ("Liiketoiminta","Liiketoiminta Lorem Ipsum is simply dummy..","Liiketoiminta Lorem Ipsum is simply dummy..",3),
+      ("Rahoitus","Rahoitus Lorem Ipsum is simply dummy..","Rahoitus Lorem Ipsum is simply dummy..",3)
+      ;
+                    
+                                    
+                        
+                </pre>
+                <img src="harjoitus9/2.B.1.jpg" alt="">
+    
+            </div>
+         
+            <div >
+                <h2>9.2.c EER</h2>
+                <p>
+                    Before filling "assessment" table, i have added the following check contraints:
+                    <pre>
+    ALTER TABLE assessment 
+    ADD CONSTRAINT chk_knowledgeAssessment CHECK (knowledgeAssessment > 0 AND knowledgeAssessment <= 10);
+    
+    ALTER TABLE assessment
+    ADD CONSTRAINT chk_experienceAssessment CHECK (experienceAssessment > 0 AND experienceAssessment <= 10);
+    
+                    </pre>
+                </p>
+                <p>
+                    For each person, i have added self-assessment and one assessment from the expert(4 or 5). Note that expert have assessed themselves aswell
+                </p>
+
+
+                <pre>
+INSERT INTO assessment(personId,skillId,knowledgeAssessment,experienceAssessment,assessorId)
+VALUES(1,1,10,10,1),
+      (1,2,9,9,1),
+      (1,3,8,8,1),
+      (1,4,7,7,1),
+      (1,5,6,6,1),
+      (1,6,5,5,1),
+      
+      (1,1,7,6,4),
+      (1,2,7,6,4),
+      (1,3,7,5,4),
+      (1,4,3,5,4),
+      (1,5,7,5,4),
+      (1,6,5,4,4),
+      
+      (2,1,6,6,2),
+      (2,2,9,8,2),
+      (2,3,6,5,2),
+      (2,4,7,7,2),
+      (2,5,9,8,2),
+      (2,6,6,5,2),
+      
+      (2,1,8,8,5),
+      (2,2,8,7,5),
+      (2,3,5,4,5),
+      (2,4,7,6,5),
+      (2,5,6,4,5),
+      (2,6,5,3,5),
+      
+      (3,1,8,7,3),
+      (3,2,4,3,3),
+      (3,3,9,6,3),
+      (3,4,7,4,3),
+      (3,5,8,5,3),
+      (3,6,10,9,3),
+      
+      (3,1,10,10,5),
+      (3,2,4,4,5),
+      (3,3,4,3,5),
+      (3,4,2,1,5),
+      (3,5,3,1,5),
+      (3,6,5,4,5),
+      
+      (4,1,10,6,4),
+      (4,2,6,4,4),
+      (4,3,8,8,4),
+      (4,4,6,4,4),
+      (4,5,6,5,4),
+      (4,6,8,5,4),
+      
+      (4,1,10,5,5),
+      (4,2,9,5,5),
+      (4,3,9,8,5),
+      (4,4,7,4,5),
+      (4,5,6,6,5),
+      (4,6,6,5,5),
+      
+      (5,1,9,10,4),
+      (5,2,9,4,4),
+      (5,3,8,3,4),
+      (5,4,5,7,4),
+      (5,5,8,6,4),
+      (5,6,4,5,4),
+      
+      (5,1,10,5,5),
+      (5,2,8,9,5),
+      (5,3,8,5,5),
+      (5,4,7,4,5),
+      (5,5,7,6,5),
+      (5,6,5,5,5)
+      
+      ;
+
+                </pre>
+                <img src="harjoitus9/2.C.jpg" alt="">
+    
+            </div>
+            <div >
+                <h2>9.3.a</h2>
+                <pre>
+                    
+
+SELECT personID, ROUND(AVG(knowledgeAssessment),1) AS knowlwdge_Avg_grade, ROUND(AVG(experienceAssessment),1) AS experience_Avg_grade 
+FROM assessment
+WHERE personId=assessorId
+GROUP BY personId;
+
+                </pre>
+                <img src="harjoitus9/3.A.png" alt="">
+    
+            </div>
+            
+            <div >
+ 
+                <h2>9.3.b</h2>
+                <p>
+                    I chose grades given by 1 expert since I have only two experts, so that results for this question won't be similar to how I understood 9.3.e
+                </p>
+                <pre>
+SELECT personID, ROUND(AVG(knowledgeAssessment),1) AS knowlwdge_Avg_grade, ROUND(AVG(experienceAssessment),1) AS experience_Avg_grade 
+FROM assessment
+WHERE assessorId=4
+GROUP BY personId;
+                    
+
+                                    </pre>
+                <img src="harjoitus9/3.B.png" alt="">
+    
+            </div>
+            <div >
+                <h2>9.3.c</h2>
+                <p>
+                    For this tasks, real average values are not seen for person 1,2,and 3 because they have only one assessor(self-assessment is not included). 
+                    Real average values can be seen for experts 4 and 5 where they assessed themselves and assessed each other aswell.
+                </p>
+                <pre>
+SELECT personId, skillId, ROUND(AVG(knowledgeAssessment),1) AS knowlwdge_Avg_grade, ROUND(AVG(experienceAssessment),1) AS experience_Avg_grade, assessorId 
+FROM assessment
+WHERE assessorId IN (4,5)
+GROUP BY personId, skillId;
+
+                </pre>
+                <img src="harjoitus9/3.C.png" alt="">
+    
+            </div>
+            <div >
+                <h2>9.3.d </h2>
+                <p>Expert self-assessment is also included in this task.</p>
+                <pre>
+SELECT personId, skillGroupName, ROUND(AVG(knowledgeAssessment),1) AS knowlwdge_Avg_grade, ROUND(AVG(experienceAssessment),1) 
+AS experience_Avg_grade
+FROM assessment
+INNER JOIN skills
+ON assessment.skillId=skills.skillId
+INNER JOIN skillGroup 
+ON skillGroup.skillGroupId=skills.skillGroupId
+WHERE personId=assessment.assessorId
+GROUP BY personId,skills.skillGroupId;
+
+                </pre>
+                <img src="harjoitus9/3.D.png" alt="">
+    
+            </div>
+            <div >
+                <h2>9.3.e</h2>
+                <p>
+                    This one is pretty difficult to understand. What I understood was to find the average of grades given by only experts(No self assessment) 
+                    and group them by the personId! I did not see a need to use a subquery.
+                </p>
+                <pre>
+SELECT personID, ROUND(AVG(knowledgeAssessment),1) AS knowlwdge_Avg_grade, ROUND(AVG(experienceAssessment),1) AS experience_Avg_grade 
+FROM assessment
+WHERE personId != assessorId
+GROUP BY personId;
+                </pre>
+                <img src="harjoitus9/3.E.png" alt="">
+    
+            </div>
+           
+            
+
+        </div>
+        
+
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+	 body {width: 400px; margin: auto}
+	.box {
+	  border: 1px dashed #000; padding: 15px; background-color: #adbed8;
+	}
+	input[type="text"] {width: 200px;}
+
+	button {
+	  background-color: #069; border-radius: 5px;
+	  color: #fff; margin-bottom: 5px; margin-right: 5px;
+	  padding: 5px 15px; border: none;
+	}
+    </style>
+  </head>
+
+  <body>
+ 
+  <h3>Nelilaskin</h3>
+  <div id="ratkaisu" class="box"></div>
+
+    <script type="text/babel">
+
+
+ class Nelilaskin extends React.Component {
+
+	constructor(props) {
+	    super(props);
+	    this.handleClick = this.handleClick.bind(this);
+        this.number1=React.createRef();
+		this.number2=React.createRef();
+		this.result=React.createRef();
+
+        this.plus=React.createRef();
+        this.minus=React.createRef();
+        this.multiply=React.createRef();
+        this.divide=React.createRef();
+    }
+
+	  handleClick(index) {
+
+		// Haetaan kaikki button-elementit
+		var myElements = document.querySelectorAll("button");
+	 
+		// Asetetaan kaikille buttoneille alkuperÃ¤inen vÃ¤ri:
+		for (var i = 0; i < myElements.length; i++) {
+		    myElements[i].style.backgroundColor = "#069";
+		}
+
+        var firstNumber=parseInt(this.number1.current.value);
+        var secondNumber=parseInt(this.number2.current.value);
+        var sum=firstNumber + secondNumber;
+        var diff=firstNumber - secondNumber;
+        var product=firstNumber * secondNumber;
+        var division=firstNumber / secondNumber;
+        
+        if (index=="+"){
+            this.result.current.value= sum
+            this.plus.current.style.backgroundColor="green";
+            }
+         else if (index=="-"){
+            this.result.current.value= diff;
+            this.minus.current.style.backgroundColor="green";
+        }
+         else if (index=="*"){
+             this.result.current.value= product;
+             this.multiply.current.style.backgroundColor="green";
+         }
+         else if (index=="/"){
+             
+             this.result.current.value= division;
+             this.divide.current.style.backgroundColor="green";
+         }
+        }
+
+	render() {
+	    return (
+	      <div>
+		<table>
+		<tbody>
+		<tr><td>Luku1:</td><td><input type="text" ref={this.number1} /></td></tr>
+		<tr><td>Luku2:</td><td><input type="text" ref={this.number2} /></td></tr>
+		<tr><td>Tulos:</td><td><input type="text" ref={this.result} /></td></tr>
+		<tr><td>Laske</td><td>
+            <button id="+" ref={this.plus} onClick={this.handleClick.bind(this,"+")}>+</button>
+            <button id="-" ref={this.minus} onClick={this.handleClick.bind(this,"-")}>-</button>
+            <button id="*" ref={this.multiply} onClick={this.handleClick.bind(this,"*")}>*</button>
+            <button id="/" ref={this.divide} onClick={this.handleClick.bind(this,"/")}>/</button>
+                   </td></tr>
+		</tbody>
+		</table>
+	      </div>
+	    );
+	  }
+	}
+
+	ReactDOM.render(
+	  <Nelilaskin />,
+	  document.getElementById('ratkaisu')
+	);
+
+    </script>
+
+  </body>
+</html>

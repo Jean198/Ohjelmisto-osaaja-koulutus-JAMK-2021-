@@ -1,0 +1,154 @@
+html{
+
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+
+}
+body{
+    height: 100%;
+}
+
+nav{
+    text-align: center;
+    background-color:#00497D ;
+    
+}
+
+nav ul li{
+    display: inline-block;
+  margin:10px 40px 0 40px;
+  margin-bottom: 15px;
+  padding: 2px;
+  font-size: 1.2em;
+
+  
+}
+
+nav ul li a:hover{
+    color: yellow;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:white;
+    
+    
+}
+
+#main-section{
+    width: 90%;
+    margin: 0 auto;
+    border: dashed #40ADE9 2px;
+    padding: 20px;
+    height: 100%;
+}
+
+main{
+    width: 75%;
+    /*border: solid;*/
+    height:100%;
+    display: inline-block;
+    
+    
+}
+
+article{
+    padding: 20px;
+}
+
+article img{
+    float: right;
+    margin-right: 10px;
+    clear:both;
+    cursor: pointer;
+
+}
+
+article p {
+    margin-left: 0px;
+    overflow:auto;
+    display:block;
+
+}
+
+aside{
+    
+    height: 100%;
+    float: right;
+    /*border: solid;*/
+    width:20%;
+    padding: 5px;
+    background-color: #F2F2F2;
+    
+}
+
+h1{
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+
+h1,h2,h3{
+    color: #00497D;
+}
+
+footer{
+    margin-top: 15px;
+    width:92%;
+    margin: 0 auto;
+}
+
+article hr{
+    border:#40ADE9 solid 0.5px;
+}
+
+#logo{
+    margin-left: 20px
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:900px){
+
+    #main-section{
+        overflow: inherit;
+        height:fit-content;
+    }
+
+    main{
+        display: block;
+        width:100%;
+        height:fit-content;
+        padding: 5px;
+    }
+
+    aside{
+        width: 100%;
+        height:fit-content;
+        float: none;
+        margin-top: 5px;
+        
+
+    }
+
+}
+
+
+/*-------------------------------------------------------------------------*/
+
+@media screen and (max-width:600px){
+
+    nav ul li{
+        display: block;
+    }
+
+    #logo{
+        margin-left: 35%;
+
+    }
+
+}
+

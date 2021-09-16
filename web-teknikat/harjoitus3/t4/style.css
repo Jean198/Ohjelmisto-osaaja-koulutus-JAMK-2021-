@@ -1,0 +1,37 @@
+table{
+    
+    border: 1px solid #D6D6D6;
+    border-spacing: 4px;
+    font-size: 11px;
+    background-color: #FAF4FE;
+    width:80%;
+    /*border-width: 2px 4px 4px 2px;*/
+    font-weight: bold;
+    box-shadow: 1px 1px 0px  1px ;
+    
+    
+    
+}
+
+table td{
+    border: 1px solid;
+    border-color:darkgray ;
+    /* box-shadow: 1px 1px #666666;*/
+    border-width: 1.5px 2px 2px 1.5px;
+    
+}
+
+td{
+    padding: 5px;
+    
+}
+
+td:nth-child(1){
+    text-align: center;
+    background-color: #0099FF;
+    color: white;
+    font-weight: bold;
+}
+
+
+

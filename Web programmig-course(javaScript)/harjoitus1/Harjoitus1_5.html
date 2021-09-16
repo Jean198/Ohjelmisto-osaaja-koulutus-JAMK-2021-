@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   
+</head>
+<body>
+    <h1>Taulukon [11,22,33,44] läpikäyntiä</h1>
+    <p> for ja for ... of-silmukoilla<p> <hr>
+    
+    <p id= "para"> </p>
+
+    <script>
+        
+
+      
+            var table=[11,22,33,44]
+            var sum=0
+            
+            leng=table.length
+            for (var number of table){
+
+                sum+=number
+
+
+            }
+
+            average= (sum/leng)
+           
+
+            
+            
+
+        var firstpara=document.getElementById("para")
+        firstpara.innerHTML= "Alkiot ovat: "+"<br>"+"<br>"+"taulukko [0] = " + table[0] +"<br>"
+                             +"taulukko [0] = " + table[1] +"<br>"
+                             +"taulukko [0] = " + table[2] +"<br>"
+                             +"taulukko [0] = " + table[3] +"<br><br>"
+                             +"Lukumäära on: " + leng +"<br>"
+                             +"Summa on: " + sum +"<br>"
+                             +"Summa on: " + average +"<br>"
+                             
+
+
+    </script> 
+</body>
+</html>

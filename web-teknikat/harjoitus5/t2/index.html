@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <title>t2</title>
+</head>
+<body>
+    <div id="title"><h1>Nettoasunto-Ilmianna loistokohde</h1></div>
+    
+    <div id="container">
+        <form action="show-data.php" method="GET" oninput="output2.value=input2.value + ' kEUR',output1.value=input1.value + ' kEUR'">
+            <div id="ilmiantaja" class="small-divs">
+                <div id="try"> Suosikkiasuinalueeni</div>
+                <label for="name">Nimi:</label> <br>
+                <input class="textinput" type="textbox" name="name" value=""  placeholder="Kirjoita nimesi tähän" autofocus required/><br>
+
+                <label for="puhelin">Puhelinnumero:</label> <br>
+                <input class="textinput" type="tel" name="puhelin" value="" placeholder="Puhelinumero muodossa 040 xxx xxx x" required pattern="[0-4]{3} [0-9]{3} [0-9]{3} [0-9]"/><br>
+
+                <label for="email">Email:</label> <br>
+                <input class="textinput" type="email" name="email" value="" placeholder="Kirjoita sähköpostiosoitteesi tähän" required/>
+            </div>
+            <div id="ilmoituksen-url" class="small-divs">
+                <div id="try"> Suosikkiasuinalueeni</div>
+                <label for="name">Ilmoituksen URL:</label> <br>
+                <input class="textinput" type="url" name="url" value="" placeholder="Kopio jokakodin/Etuoven kohdeURL tähän" required/><br>
+
+                
+            </div>
+
+            
+            <div id="asunnon-pyyntihinta" class="small-divs">
+                <div id="try"> Suosikkiasuinalueeni</div>
+                <output id="output1" for="input1"></output><br>
+                1 kEUR<input id="input1"type="range" name="range1" value="1" min="1" max="500"/> 500kEUR<br>
+
+                
+            </div>
+
+            <div id="arvioimani-hinta" class="small-divs">
+                <div id="try"> Suosikkiasuinalueeni</div>
+                
+                <output id="output2" for="input2"> </output><br>
+
+                1 kEUR<input id="input2" type="range" name="range2" value="1" min="1" max="500" /> 500kEUR<br>
+
+                
+            </div>
+
+            <div id="suosikkiasuinalueeni" class="small-divs">
+
+                <div id="try"> Suosikkiasuinalueeni</div>
+                <input list= "residential-area" name="area"/>
+                  <datalist id="residential-area">
+                    <option value="Aittorinne">
+                    <option value="Keskusta">
+                    <option value="Kortepohja">
+                    <option value="Kuokkala">
+                    <option value="Roninmäki">
+                  </datalist>
+
+                
+            </div>
+            <button>Ilmianna <br> asunto</button>
+
+
+        </form>
+
+    </div>
+
+    <div id="footer">
+        <footer>
+            &copy; 2014 Q&D Software Ltd. kaikki oikeudet pidätetään.
+        </footer>
+    </div>
+    
+</body>
+
+<output id="output2" for="input2"> </output><br>
+
+ 1 kEUR<input id="input2" type="range" name="range2" value="1" min="1" max="500" /> 500kEUR<br>
+</html>
+

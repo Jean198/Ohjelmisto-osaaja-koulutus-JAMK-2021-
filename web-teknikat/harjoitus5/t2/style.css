@@ -1,0 +1,75 @@
+html{
+    font-family: 'Ubuntu', sans-serif;;
+}
+
+#title{
+    margin: 0 auto;
+    text-align: center;
+    color:#4D797E
+    
+}
+
+#container{
+    
+    background-color:#555555 ;
+    width: 450px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.small-divs{
+    
+    background-color:#E0E0E0 ;
+    border-radius: 4px;
+    width: 90%;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.textinput{
+    width:100%;
+    padding: 3px;
+
+}
+
+
+#asunnon-pyyntihinta, #arvioimani-hinta{
+    text-align: center;
+}
+
+button{
+    margin-top: 20px;
+    background-color:#53949C ;
+    color: white;
+    padding: 10px 15px;
+    border: solid black 1px;
+    border-radius: 3px;
+    cursor: pointer;
+    
+}
+
+#try{
+    background-color: #53949C;
+    width: 40%;
+    border: solid black 1px;
+    border-radius: 5px;
+    position: relative;
+    top:-35px;
+    padding: 5px;
+    color:white;
+    font-weight: 550;
+}
+
+
+
+::placeholder{
+    color: rgba(28, 135, 243, 0.8);
+    opacity: 7;
+}
+
+#footer{
+    text-align: center;
+    margin-top: 20px;
+}

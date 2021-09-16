@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Taulukon [11,22,33,44] läpikäyntiä</h3>
+    <p>tulostamista ja keskeisten suureiden laskemista lambda-merkittyinä funktioilla</p>
+    <hr>
+    <div id=results>
+        Alkiot ovat: <br><br>
+
+    </div>
+    <script>
+        let arr=[11,22,33,44];
+
+        let sisalto=" ";
+
+        
+        // writting functions as arrow functions
+
+        let arrPrint= arr.forEach((number,numberIndex)=>sisalto+=("taulukko: ["+numberIndex+"]="+ number+"<br>")) ; //arr data has been append to sisalto because i didnt know how to save them into variable!
+        
+        let arrCount=()=>arr.length;
+        let arrSum=()=>arr.reduce((accumulator,currentValue)=>accumulator+currentValue)
+        let arrAvg=arrSum(arr)/arrCount(arr)
+
+        
+     //---------------------------------------------------------------------------------------------------------------   
+        function writeResults(){
+
+            
+            sisalto+="<br>"+"Lukumäärä on: " + arrCount(arr)+"<br>"+"Summa on: "+arrSum(arr)+"<br>"+"Keskiarvo on: "+ arrAvg+"<br>"
+
+            document.getElementById("results").innerHTML+=sisalto;
+
+
+        }
+    //------------------------------------------------------------------------------------------------------------------
+    window.onload=writeResults(); 
+    </script>
+</body>
+</html>

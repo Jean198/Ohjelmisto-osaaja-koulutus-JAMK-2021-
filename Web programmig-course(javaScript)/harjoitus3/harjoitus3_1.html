@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harjoitus3_1</title>
+
+    <style>
+        #container{
+            margin: 0 auto;
+            width: 250px;
+            border: solid;
+            padding: 10px;
+        }
+
+        #textinput{
+            margin-bottom: 20px;;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>SimpleToDo</h1>
+        ToDo: <br>
+        <div id="textinput"><input type="text" id="enteredtask"><br></div>
+
+        <div>
+            <input type="submit" value="Lisää" id="add">
+        <input type="submit" value="Tyhjää lista" id="emptylist">
+
+        </div>
+            <ul id="lista">
+                
+            </ul>
+
+        <div>
+
+        </div>
+        
+        
+    </div>
+
+    <script>
+        
+
+        document.getElementById('add').onclick=function(){
+            let task=document.getElementById("enteredtask").value;
+            let ulist=document.getElementById("lista");
+            let newtask=document.createElement('li');
+            if (task != ""){
+                newtask.append(task);
+                ulist.appendChild(newtask);
+
+            }
+            
+        }
+
+        document.getElementById("emptylist").onclick=function(){
+            updatedlist=document.getElementById("lista");
+            while(updatedlist.hasChildNodes()){
+                updatedlist.removeChild(updatedlist.firstChild);
+            }
+        }
+
+        
+
+
+
+    </script>
+    
+</body>
+</html>

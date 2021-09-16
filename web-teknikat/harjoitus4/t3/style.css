@@ -1,0 +1,39 @@
+#container{
+    max-width: 800px;
+    /*background-color: red;*/
+    padding: 10px;
+    
+    
+}
+#leftdiv{
+    background-color: #EEEEEE;
+    padding: 5px;
+    width: 20%;
+    height: 400px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top
+    
+    
+}
+
+#rightdiv{
+    width:70%;
+    /*background-color: yellow;*/
+    padding: 10px;
+    display: inline-block;
+    vertical-align: top
+}
+
+
+
+#footer{
+    text-align: center;
+    
+}
+
+
+
+
+
+

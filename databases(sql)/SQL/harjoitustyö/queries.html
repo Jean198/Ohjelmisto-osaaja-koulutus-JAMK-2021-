@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="queriesstyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500&family=Exo:ital,wght@0,300;0,400;1,200&family=Overpass:wght@300;400&display=swap" rel="stylesheet"> 
+    <title>queries</title>
+</head>
+<body>
+    <div id="container">
+        <section id="tables">
+            <div>
+                <h1>Table queries</h1>
+                <p>
+                    <pre>
+    
+    CREATE TABLE customers (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        firstname VARCHAR (32),
+        lastname VARCHAR (32),
+        address VARCHAR (60),
+        zip_code VARCHAR(32),
+        city VARCHAR(32),
+        phone VARCHAR(15),
+        email VARCHAR (60)
+        );
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+            <hr>
+    
+            <div>
+                <p>
+                    <pre>
+    
+    CREATE TABLE fields (
+        fieldID INT(20) PRIMARY KEY AUTO_INCREMENT,
+        fieldname VARCHAR(32) NOT NULL,
+        location VARCHAR(32) NOT NULL,
+        fieldtype VARCHAR(32) NOT NULL,
+        price_hourly DECIMAL(6,2) NOT NULL
+        );
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+            <hr>
+            <div>
+                <p>
+                    <pre>
+    
+    CREATE TABLE equipments (
+        equipmentID INT(32) PRIMARY KEY AUTO_INCREMENT,
+        type VARCHAR(32) UNIQUE NOT NULL,
+        price_hourly DECIMAL(4,2)
+        );
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+            <hr>
+            <div>
+                <p>
+                    <pre>
+    
+CREATE TABLE bookings (
+    bookingID INT PRIMARY KEY AUTO_INCREMENT,
+    booking_done_on DATETIME DEFAULT CURRENT_TIMESTAMP,
+    customer INT,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    field INT(20) NOT NULL,
+    equipment_type INT(32),
+    bookingstatus VARCHAR(32),
+    FOREIGN KEY (customer) REFERENCES customers(id) ON DELETE SET NULL,
+    FOREIGN KEY (field) REFERENCES fields(fieldID),
+    FOREIGN KEY (equipment_type) REFERENCES equipments(equipmentID) 
+    )
+    ;
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+
+        </section>
+        <hr>
+
+        <section id="triggers">
+            <div>
+                <h1>Triggers</h1>
+                <p>
+                    <pre>
+    
+        <h3>DECREASING THE NUMBER OF FIELDS BY 1</h3> 
+
+        DELIMITER $$
+        create trigger fields_count
+        after insert on bookings for each row
+        
+        begin
+        IF (new.bookingstatus = 'Booked') THEN
+        UPDATE fields
+        SET available_fields = available_fields - 1
+        where fields.fieldID=new.field;
+        end if;
+        end;
+                        
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+            <hr>
+    
+            <div>
+                <p>
+                    <pre>
+        <h3>INCREASING THE NUMBER OF FIELDS BY 1</h3>
+
+        DELIMITER $$
+        create trigger fields_count1
+        after delete on bookings for each row
+        
+        begin
+        
+        UPDATE fields
+        SET available_fields = available_fields + 1
+        where fields.fieldID=old.field;
+        
+        end;
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+            <hr>
+            <div>
+                <p>
+                    <pre>
+    
+        <h3>PREVENT THE FIELD BOOKING WHEN THE NUMBER OF FIELDS IS ZERO</h3>
+
+        DELIMITER $$
+        create trigger fields_count4
+        before insert on bookings for each row
+        
+        begin
+        IF((select available_fields from fields where fields.fieldID=new.field)=0) THEN
+        SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT = 'Field Not available';
+        end if;
+        end;
+                        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+            <hr>
+            <div>
+                <p>
+                    <pre>
+    
+        <h3>PROMPT TO USE THE CORRECT BOOKING CODE</h3>
+
+        DELIMITER $$
+        create trigger fields_count5
+        before insert on bookings for each row
+        
+        begin
+        IF (new.bookingstatus != 'Booked') THEN
+        SIGNAL SQLSTATE '02000' SET MESSAGE_TEXT = 'Enter correct booking code!!("Booked")';
+        end if;
+        end
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+
+        </section>
+        <hr>
+
+        <section id="views">
+            <div>
+                <h1>Views</h1>
+                <p>
+                    <pre>
+    
+        create view allbookings as 
+        select bookingID,booking_done_on, firstname, lastname,start_time,end_time, 
+        fieldname,fieldtype,fields.price_hourly as field_price ,equipments.price_hourly as equipments_price ,
+        SUM(fields.price_hourly + equipments.price_hourly) as Total_Price from customers  
+        inner join bookings 
+        on bookings.customer=customers.id 
+        inner join equipments  
+        on bookings.equipment_type=equipments.equipmentID 
+        inner join fields 
+        on bookings.field=fields.fieldID
+        ;
+        
+    
+                    </pre>
+    
+    
+        
+    
+                </p>
+    
+            </div>
+        
+
+        </section>
+        
+        
+        
+        
+
+    </div>
+    
+</body>
+</html>

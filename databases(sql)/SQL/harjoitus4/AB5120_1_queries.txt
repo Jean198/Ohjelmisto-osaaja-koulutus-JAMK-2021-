@@ -1,0 +1,156 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema AB5120_1
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema AB5120_1
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `AB5120_1` ;
+USE `AB5120_1` ;
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`customer`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`customer` (
+  `customer_ID` INT NOT NULL AUTO_INCREMENT,
+  `customer_name` VARCHAR(45) NOT NULL,
+  `customer_birthdate` DATETIME NOT NULL,
+  `customer_phone` INT NOT NULL,
+  `customer_email` VARCHAR(45) NULL,
+  `customer_timestamp` DATETIME NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `customer_created` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`customer_ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`table`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`table` (
+  `table_ID` INT NOT NULL AUTO_INCREMENT,
+  `table_size` INT NOT NULL,
+  `table_location` VARCHAR(45) NULL,
+  `table_pricePerHour` INT NOT NULL,
+  `booking_booking_ID` INT NOT NULL,
+  `booking_customer_customer_ID` INT NOT NULL,
+  PRIMARY KEY (`table_ID`, `booking_booking_ID`, `booking_customer_customer_ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`productGroup`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`productGroup` (
+  `productGroup_ID` INT NOT NULL AUTO_INCREMENT,
+  `productGroup_name` VARCHAR(45) NOT NULL,
+  `productGroup_description` VARCHAR(45) NULL,
+  PRIMARY KEY (`productGroup_ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`sale`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`sale` (
+  `sale_ID` INT NOT NULL AUTO_INCREMENT,
+  `dateTime` DATETIME NOT NULL,
+  `product_table_tableNumber` INT NOT NULL,
+  `product_productGroup_groupCode` INT NOT NULL,
+  `customer_customer_ID` INT NOT NULL,
+  PRIMARY KEY (`sale_ID`, `product_table_tableNumber`, `product_productGroup_groupCode`, `customer_customer_ID`),
+  INDEX `fk_sale_customer1_idx` (`customer_customer_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_sale_customer1`
+    FOREIGN KEY (`customer_customer_ID`)
+    REFERENCES `AB5120_1`.`customer` (`customer_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`product` (
+  `product_ID` INT NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(45) NULL,
+  `product_price` INT NULL,
+  `productGroup_productGroup_ID` INT NOT NULL,
+  `table_table_ID` INT NOT NULL,
+  `sale_sale_ID` INT NOT NULL,
+  `sale_product_table_tableNumber` INT NOT NULL,
+  `sale_product_productGroup_groupCode` INT NOT NULL,
+  `sale_customer_customer_ID` INT NOT NULL,
+  PRIMARY KEY (`product_ID`, `productGroup_productGroup_ID`, `table_table_ID`),
+  INDEX `fk_product_productGroup1_idx` (`productGroup_productGroup_ID` ASC) VISIBLE,
+  INDEX `fk_product_table1_idx` (`table_table_ID` ASC) VISIBLE,
+  INDEX `fk_product_sale1_idx` (`sale_sale_ID` ASC, `sale_product_table_tableNumber` ASC, `sale_product_productGroup_groupCode` ASC, `sale_customer_customer_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_product_productGroup1`
+    FOREIGN KEY (`productGroup_productGroup_ID`)
+    REFERENCES `AB5120_1`.`productGroup` (`productGroup_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_product_table1`
+    FOREIGN KEY (`table_table_ID`)
+    REFERENCES `AB5120_1`.`table` (`table_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_product_sale1`
+    FOREIGN KEY (`sale_sale_ID` , `sale_product_table_tableNumber` , `sale_product_productGroup_groupCode` , `sale_customer_customer_ID`)
+    REFERENCES `AB5120_1`.`sale` (`sale_ID` , `product_table_tableNumber` , `product_productGroup_groupCode` , `customer_customer_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`address`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`address` (
+  `address_id` INT NOT NULL AUTO_INCREMENT,
+  `address_street` VARCHAR(45) NULL,
+  `address_city` VARCHAR(45) NULL,
+  `address_country` VARCHAR(45) NULL,
+  `customer_customer_ID` INT NOT NULL,
+  PRIMARY KEY (`address_id`, `customer_customer_ID`),
+  INDEX `fk_address_customer1_idx` (`customer_customer_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_address_customer1`
+    FOREIGN KEY (`customer_customer_ID`)
+    REFERENCES `AB5120_1`.`customer` (`customer_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AB5120_1`.`booking`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AB5120_1`.`booking` (
+  `booking_ID` VARCHAR(45) NOT NULL,
+  `customer_customer_ID` INT NOT NULL,
+  `table_table_ID` INT NOT NULL,
+  `booking_date` DATETIME NOT NULL,
+  PRIMARY KEY (`booking_ID`, `customer_customer_ID`, `table_table_ID`),
+  INDEX `fk_customer_has_table_table1_idx` (`table_table_ID` ASC) VISIBLE,
+  INDEX `fk_customer_has_table_customer1_idx` (`customer_customer_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_customer_has_table_customer1`
+    FOREIGN KEY (`customer_customer_ID`)
+    REFERENCES `AB5120_1`.`customer` (`customer_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_customer_has_table_table1`
+    FOREIGN KEY (`table_table_ID`)
+    REFERENCES `AB5120_1`.`table` (`table_ID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

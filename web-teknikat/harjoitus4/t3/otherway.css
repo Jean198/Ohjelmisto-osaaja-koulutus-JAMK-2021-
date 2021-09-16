@@ -1,0 +1,57 @@
+.col-container {
+    display: table;
+     /* Make the container element behave like a table */
+    max-width: 800px; /* Set full-width to expand the whole page */
+    background-color: yellow;
+    
+    
+}
+.col1, .col2 {
+    display: table-cell; 
+    padding: 10px;
+    
+}
+
+.col1{
+    background-color: red;
+    width: 30%;
+    vertical-align: top;
+    text-align: center;
+}
+.col2{
+    background-color: green;
+
+}
+
+.col3{
+    background-color:blue;
+    text-align: center;
+    width: 800px;
+    color: white;
+    
+    
+}
+
+
+@media only screen and (max-width: 800px) {
+    .col {
+
+      display: block;
+      width: 100%;
+      
+    }
+
+    .col2{
+        width: 100%;
+    }
+    .col2 img{
+        width:40em;
+    }
+
+    .col3{
+        width:100%
+    }
+
+   
+
+  }

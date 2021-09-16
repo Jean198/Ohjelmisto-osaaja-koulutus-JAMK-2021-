@@ -1,0 +1,60 @@
+ table{
+    padding: 5px;
+    font-size: 11px;
+    background-color: #FAF4FE;
+    border-spacing: 5px;
+    
+    
+    
+}
+
+
+
+table, th{
+    border: 1px solid;
+    box-shadow: 1px 1px;
+    
+}
+
+th,td{
+    
+    border-top:1px solid #D9D9D9;
+    border-right:1.5px solid #0E0E0E; 
+    border-bottom: 1.5px solid #0E0E0E ;
+    border-left:1px solid #D9D9D9;
+    
+}
+
+table td{
+    padding:5px 20px ;
+    text-align: center;
+}
+
+th{
+    
+    background-color: #0099FF;
+    color:white;
+    
+    
+}
+
+td:nth-child(1){
+    background-color:#0099FF ;
+    color:white;
+    
+    font-weight: 500;
+    font-size: larger;
+}
+
+.luento{
+    background-color: #FE0000;
+}
+.kokous{
+    background-color:#00FF01 ;
+}
+
+.demot{
+    background-color: #FFFE00;
+}
+
+

@@ -1,0 +1,60 @@
+body{
+
+    background-color: #F0F0EE;
+    font-family:  "Open Sans", sans-serif;
+    margin: 0 auto;
+}
+
+
+
+#header{
+    background-color: #98B4BB;
+    text-align: center;
+    padding: 30px;
+    color: white;
+
+}
+
+#navbar{
+    background-color: #7B7B7B;
+    color: #A0A0A0;
+    text-align: center;
+    padding:10px;
+    
+    
+}
+
+#navbar span{
+    color: #CED7D3;
+    font-weight: 700;
+
+}
+
+#navbar a{
+    text-decoration: none;
+    color: #A0A0A0;
+}
+
+
+
+#profile{
+    text-align: center;
+    padding: 20px;
+}
+
+.h2{
+    background-color: #7B7B7B;
+    color:#F0F0EE;
+    padding: 3px;
+    padding-left: 50px;
+
+    margin: 5px 20px
+}
+
+#contacts{
+    text-align: center;
+}
+
+.paragraphs{
+    margin: 15px 20px;
+}

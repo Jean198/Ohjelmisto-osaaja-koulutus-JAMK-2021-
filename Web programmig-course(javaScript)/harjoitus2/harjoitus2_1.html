@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>harjoitus2_1</title>
+
+  <script type="text/javascript" >
+
+    var c= parseInt();
+    var d=value2=parseInt(document.getElementById("input2").value);
+
+    function sumTwoNumbers(a,b)
+    {
+        
+        var sum=parseInt(a)+parseInt(b);
+        document.getElementById("tulos").innerHTML="summa=" + " "+sum;
+    
+    }
+</script>
+
+<style>
+    div{
+        margin: 0 auto;
+        width: 300px;
+        padding: 5px;;
+        border:solid;
+    }
+</style>
+  
+  
+</head>
+<body>
+
+    <div>
+        <h1>Laske Luvut yhteen</h1>
+
+        <input type="text" name="" id="input1"> <br><br>
+        <input type="text" name="" id="input2"> <br><br>
+        <input type="submit" name="" value="Laske" onclick="sumTwoNumbers(document.getElementById('input1').value,document.getElementById('input2').value)"> <br>
+        <p  id="tulos"></p>
+
+    </div>
+
+    
+</body>
+</html>

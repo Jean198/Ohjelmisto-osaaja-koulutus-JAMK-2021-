@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harjoitus5_2</title>
+    <style>
+        #container{
+            width:20%;
+            #background: red;
+            margin: 0 auto;
+            text-align: center;
+            padding: 8px;
+            border: solid;
+        }
+
+        #smallcontainer{
+            background-color:#F0F8FF ;
+            padding:10px;
+        }
+
+        #head{
+            width:300px;
+            
+            background-color: #5F9EA0;
+            color: white;
+        }
+
+        #form{
+            position:relative;
+            margin-left: -80px;
+        }
+        #button{
+            width:70px;
+            padding:3px;
+        }
+
+        #input{
+            padding:3px;
+            margin-right: 20px;
+            margin-left: 40px;
+
+        }
+
+        
+        li{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="smallcontainer">
+            <div id="head"> <h1>Tehtävälista</h1></div>
+            <form id="form" action="" >
+                <input type="text" id="input">
+                <input type="submit" value="Lisää" id="button">
+            </form>
+            <div>
+                <ul id="list">
+
+                </ul>
+            </div>
+        </div>
+        
+
+
+    </div>
+    <script src = "https://code.jquery.com/jquery-3.1.1.min.js"> </script>
+    <script>
+        $(document).ready(function(){
+            $("#form").submit(function(e){
+                e.preventDefault();
+                var newtask=$("#input").val();
+                var task =document.createElement("li");
+                var Xbutton='<a href=# class="xbutton" style="color:#DC143C; text-decoration: none">x</a>';
+
+                if (newtask!=""){
+                    task.innerHTML=newtask + "&nbsp" + Xbutton
+                    $("#list").append(task);
+                    $("#input").val("");
+                    $("#input").focus();
+                }
+
+                $(".xbutton").click(function () {
+                    
+                    $(this).parent().remove();
+
+                });
+
+
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tehtävä4</title>
+
+    <style>
+        #container{
+            margin: 0 auto;
+            width: 250px;
+            border: solid;
+            padding: 10px;
+        }
+
+        #textinput{
+            margin-bottom: 20px;;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>SimpleToDo</h1>
+        ToDo: <br>
+        <div id="textinput">
+            <input type="text" id="enteredtask"><br>
+        </div>
+
+        <div>
+            <input type="submit" value="Lisää" id="add" onclick="addTask()">
+            <input type="submit" value="Tyhjää lista" id="emptylist" onclick="removeTasks()">
+
+        </div>
+            <ul id="lista"> </ul>
+
+        
+    </div>
+
+    <script>
+
+
+        function addTask(){
+
+            let task=document.getElementById("enteredtask").value;
+            let ulist=document.getElementById("lista");
+            let newtask=document.createElement('li');
+            if (task == ""){
+                document.getElementById("lista").innerHTML="Please add task!"
+
+                setTimeout(function(){
+
+                    document.getElementById("lista").innerHTML=""
+
+                },500)
+            
+
+            }
+
+            else{
+                
+                newtask.append(task);
+                ulist.appendChild(newtask);
+            }
+
+        }
+
+
+        function removeTasks(){
+
+               updatedlist=document.getElementById("lista");
+
+               while(updatedlist.hasChildNodes()){
+
+                    updatedlist.removeChild(updatedlist.lastChild);
+                }
+
+            }
+    
+    </script>
+    
+</body>
+</html>

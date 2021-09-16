@@ -1,0 +1,119 @@
+#container{
+    max-width: 800px;
+}
+
+#navbar{
+    text-align: right;
+}
+
+
+#orange{
+    background-color:#FF9966 ;
+    padding: 10px;
+    height: 370px;
+}
+
+#smallimages{
+    /*background-color: green;*/
+    width:22%;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    margin-top: 10px;
+    border: solid;
+}
+
+#smallimages img{
+    margin: 5px 0px 5px 10px;
+}
+
+
+
+
+#bigimage{
+    position:relative;
+    /*background-color: yellow;*/
+    width: 62%;
+    display: inline-block;
+    padding:0px;
+    text-align: center;
+    bottom: 0px;
+    margin-left: 20px;
+    border: solid;
+}
+
+
+#whitediv{
+    background-color: white;
+    padding: 5px;
+    width:70%;
+    float: left;
+    margin-top:22px;
+    overflow: auto;
+}
+
+#rightdiv{
+    background-color:#FFEEDD ;
+    width: 25%;
+    float: right;
+    padding: 7px;
+    height:350px
+}
+
+#footer{
+    text-align: left;
+}
+
+/*----------------------------------------------------------------*/
+
+@media screen and (max-width: 700px){
+
+    #smallimages{
+        /*background-color: green;*/
+        width:100%;
+        display: block;
+        padding: 0px;
+        text-align: center;
+        margin-top: 10px;
+        
+    }
+
+    #smallimages img{
+        width: 25%;
+    }
+
+    #whitediv{
+        overflow: auto;
+        width:80%;
+        text-align: center;
+
+
+    }
+
+    
+#orange{
+    overflow: auto;
+}
+
+#rightdiv{
+    width: 79%;
+    float: left;
+    margin-top: 10px;
+
+}
+
+
+#bigimage{
+    margin-left: 0px;
+    
+    
+    width: 79%
+}
+#bigimage img{
+    width: 100%;
+
+}
+
+
+
+}

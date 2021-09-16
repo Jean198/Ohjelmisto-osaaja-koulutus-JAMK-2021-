@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    The console.log calls outside the functions will be executed first because they are in the call stack. After that console.log in print function will be executed.
+
+    This is because the function "execute" is calling the function "print" which also uses "setTimeout" function. This will place it in the callback queue
+    and wait for programs in the call stack to be executed first. Also the 2s and 0.5s timeout make a difference. 0.5s timeout will be executed first.
+
+    If we wouldnt have "setTimeout" function in the program, all the programs would be executed in the order they are in.
+
+
+
+    
+    
+</body>
+</html>

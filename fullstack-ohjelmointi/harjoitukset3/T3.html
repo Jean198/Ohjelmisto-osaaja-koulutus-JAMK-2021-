@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tehtävä 3</title>
+    <style>
+        #container{
+            width:300px;
+            border: solid;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+            
+        }
+
+        #inputdiv{
+            border: solid;
+            margin: 0 auto;
+            width: 70%;
+            text-align: center;
+            padding:30px;
+            
+            
+        }
+
+        #container input{
+            width: 30px;
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        
+    </style>
+
+   
+</head>
+<body>
+    <div id="container">
+        <div id="inputdiv">
+            <table>
+                <tr>
+                    <td>T1</td>
+                    <td>T2</td>
+                    <td>T3</td>
+                    <td>T4</td>
+
+                </tr>
+                    
+                
+
+                <tr>
+                    <td><input type="text"  id ="i1" onblur="printGrade()" value="0"></td>
+                    <td><input type="text"  id ="i2" onblur="printGrade()" value="0"></td>
+                    <td><input type="text"  id ="i3" onblur="printGrade()" value="0"></td>
+                    <td><input type="text"  id ="i4" onblur="printGrade()" value="0"></td>
+                </tr>
+            </table>
+        </div>
+        <p>Pistemäärä (summa): <span id="sum"> </span> </p>
+        <p>Arvosana: <span id="grade"></span></p>
+    </div>
+
+    <script>
+        function printGrade(){
+            let inputT1 = parseInt(document.querySelector("#i1").value);
+            let inputT2 = parseInt(document.querySelector("#i2").value);
+            let inputT3= parseInt(document.querySelector("#i3").value);
+            let inputT4= parseInt(document.querySelector("#i4").value);
+            
+                if((inputT1>=0 &&inputT1<=6)&& (inputT2>=0 &&inputT2<=6)&& (inputT3>=0 &&inputT3<=6)&& (inputT4>=0 &&inputT4<=6)){
+                    function getGrade() {
+
+                
+                        sumPoints=(inputT1+inputT2+inputT3+inputT4);
+                        return sumPoints
+                        }
+                    totalPoints=getGrade()
+                    document.getElementById("sum").innerHTML=totalPoints;
+                  
+                    function calculategrade(){
+                        if (totalPoints >=0 && totalPoints <=12) {
+                            return 0;
+                          } else if (totalPoints >=13 && totalPoints <=15) {
+                            return 1;
+                          } else if (totalPoints >totalPoints <=17) {
+                            return 2;
+                          } else if (totalPoints>=18 && totalPoints <=19) {
+                            return 3;
+                          } else if (totalPoints>=20  && totalPoints <=21) {
+                            return 4;
+                          } else if (totalPoints>= 22 && totalPoints <=24 ) {
+                            return 5;
+                          }
+                    }
+                    overallGrade=calculategrade()
+                    document.getElementById("grade").innerHTML=overallGrade;
+            
+
+                
+        }
+
+        else{
+            document.getElementById("sum").innerHTML="Error"
+            document.getElementById("grade").innerHTML="Error"
+        }
+        
+    }
+
+    
+
+            
+
+            
+            
+        
+    </script>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+<script>
+    function person(name,age,phone,email){
+        this.name=name;
+        this.age=age;
+        this.phone=phone;
+        this.email=email
+
+        this.updateAge=function(){
+            this.age+=1
+        }
+
+        
+    }
+
+    var jean=new person('Jean',35,'0449717294','jean@gmail.com');
+    var pekka=new person('Pekka',42,'0449768787','pekka@gmail.com');
+    var niko=new person('Niko',56,'0449768752','niko@gmail.com');
+
+    jean.updateAge()
+    console.log(jean)
+
+    pekka.updateAge()
+    console.log(jean)
+
+    niko.updateAge()
+    console.log(jean)
+
+    
+
+
+    
+
+    
+
+
+</script>

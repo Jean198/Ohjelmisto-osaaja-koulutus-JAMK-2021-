@@ -1,0 +1,33 @@
+#edited table{
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+#edited td, #edited th {
+    border: solid 1px #A4CFCB;
+}
+
+#edited th{
+    background-color:#95AFAA ;
+    color:#FCFCED;
+}
+
+#edited tr:nth-child(even){
+
+   background-color: #FCFCED;
+   
+
+}
+
+
+
+#edited tr:nth-child(odd){
+
+    background-color: #E4ECEB;
+    
+ 
+ }
+
+ #edited td{
+     padding: 4px 10px;
+ }

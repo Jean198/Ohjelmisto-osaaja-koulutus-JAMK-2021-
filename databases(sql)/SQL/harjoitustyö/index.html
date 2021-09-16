@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500&family=Exo:ital,wght@0,300;0,400;1,200&family=Overpass:wght@300;400&display=swap" rel="stylesheet"> 
+    <title>Tennis booking database</title>
+</head>
+<body>
+    
+        <nav id="navbar">
+            <ul>
+                <li><a href="#members">Home</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#database">Database model and ER</a></li>
+                <li><a href="#function">Database functionalities</a></li>
+                <li><a href="#limitations">Database future improvements </a></li>
+                <li><a href="#assessment">Self-assessment</a></li>
+                
+                
+            </ul>
+        </nav>
+
+    
+    
+   
+    <div class="container">
+       
+        <div class= "divs" id="title"> 
+
+            
+            <h1>TENNIS BOOKING DATABASE</h1>
+        </div>
+
+        
+      
+        <hr>
+        <div id="body">
+            
+            <div class="divs" id="overview">
+                <h1>Overview</h1>
+                <p>
+                    When creating this database we imagined a scenario where customers will call or visit an office to book tennis playing ground and equipments. It stores the booking information for customers. 
+                    New customers should be registered first to make a booking. 
+                    Additional information which is being stored is information about customers, fields and equipments. It shows in real time how many fields there is available when booking. Same with renting equipment.
+                </p>
+                <p>
+                    This database was created manually and EER diagram reverse engineered. View was created for employees to see all the bookings in one place provided only with information needed. 
+                    We used triggers to show real time available fields and equipments so there won’t be double booking on same field. 
+                    Every information in this database was used by contact information generator.
+
+                </p>
+                <p>
+                    We have created also UI for employees working in office to book customers in more efficiently. 
+                    This thanks to Jean who had skills to make this happen. 
+                    It was created with Microsoft Access and Mysql database is connected to it.
+
+                </p>
+    
+            </div>
+            <hr>
+            <div class="divs" id="database">
+                <h1>Database model and ER</h1>
+                <p>
+                    The original plan of this database is shown in the image below. It’s done by using Lucidchart tool.
+                </p> <br> <br>
+                <img  src="img/model1.png" alt=""><br><br>
+
+                <p>
+                    The image below shows the final ER chart of this database. 
+                    We created it with queries and reverse engineer. 
+                    As you can see it’s quite different from raw plan above. There was lot to fix on that.
+                </p>
+                <img class="svg" id ="svg" src="img/ER.svg" alt="">
+                
+                
+    
+            </div>
+            <hr>
+            <div class="divs" id="function">
+                <h1>Database functionalities on server side-Mysql workbench</h1>
+                <ul>
+                    <li><br>
+                        
+                        
+                        
+                            <li><h2>Tables queries</h2></li>
+                            <p>In this work we used mysql workbench to create and edit database tables. 
+                                Tables have been created using the following syntax: 
+                                    <pre>
+CREATE TABLE table_name(
+column1 datatype,
+column2 datatype,
+column3 datatype,
+...
+);
+                                    </pre>
+                                    <a href="queries.html#tables">Link to the tables queries</a>
+                                </p><br>
+                            
+                            
+                            <li><h2>Field count trigger</h2></li>
+                            <p>
+                                 
+                            </p>
+                            <p>
+                                When making a booking for the first time, a trigger has been set to detect a correct booking code “Booked". 
+                                Booking will only be saved if the booking code is used correctly. In other case it will give the following error: 
+                                "Enter the correct booking code". This is achieved with the help of the trigger "fields_count". 
+                                <br><br><br><br>
+                                
+                                <img src="img/wrong_booking_code.png" alt=""><br><br><br>
+
+                            </p>
+                            <p>
+                                Another trigger which is used in following forms prevents booking a field if it’s not available on the list. 
+                                There is a limited number of fields available for each field name. 
+                                When booking is made with the correct booking code, the number of available fields will be reduced by 1. 
+                                An error "Field not available" will be returned to the user. This is achieved with the help of the trigger "fields_count4". 
+                                The image below shows a situation where the available number of fields for the fieldId 4 is zero.
+                                <br><br><br><br>
+
+                                 <img src="img/fieldsworkbench.png" alt=""><br><br><br>
+
+
+                                <br><br>
+                                In the following image, an attempt to book the fieldId 4 will return the trigger's error. <br><br><br><br><br>
+                                <img src="img/field_not_available.png" alt=""><br><br><br><br>
+                                When a specific booking is deleted, the number of available fields for the field name in the booking will be raised by 1 (+1). 
+                                This is achieved with the help of the trigger named: ”fields_count1". 
+
+
+                            </p><br>
+                               
+                            
+                            
+                            
+                            
+                            <a href="queries.html#triggers">Link to the triggers queries</a><br><br>
+
+                           
+                            
+
+                       
+
+                    </li><br><br><br>
+                    <li>
+                        <h1>UI function forms in Microsoft Access</h1><br><br>
+                        
+                            
+                            In this section, we will take a look on different Ms access forms used to interact with our database.  
+                            Below you can see the main menu. Through this main menu user has the ability to navigate into any forms. In other forms user has the ability to perform different actions like adding and removing records. 
+                            User also has the ability to navigate between records. There is option to return to the main menu if needed. 
+                            
+                            <p>
+                                
+                                 <br><br>
+                                 <h3>The main menu</h3>
+                                <img src="img/menu.png" alt=""> <br><br><br>
+
+                                
+                            </p>
+
+                            <h3>The customers table form</h3>
+                            
+                               <img src="img/customers.png" alt=""><br><br><br> 
+
+                            
+                            <h3>The equipments table form</h3>
+                            <img src="img/equipments.png" alt=""><br><br><br>
+
+                            
+
+                            <h3>The fields table form</h3>
+                                <img src="img/fields.png" alt=""><br><br><br>
+
+                            
+
+                            <h3>The bookings table form</h3>
+                            <p>
+                                The bookings form has dropdown menu for Customer, Field and Equipment. 
+                                User can see the list of available options and choose the right option. <br><br><br>
+
+                                <img src="img/bookings1.png" alt=""><br><br><br>
+                                <img src="img/bookings2.png" alt=""><br><br><br>
+                                <img src="img/bookings2.png" alt=""><br><br><br>
+                                
+
+                            </p>
+                            <h3>The bookings view form</h3>
+                            <p>
+                                A view has been made combining customer, booking, field and equipment tables.  
+                                With this view user is able to see all the important information on bookings.<br><br><br>
+
+                                <img src="img/view.png" alt=""><br><br>
+
+                                <a href="queries.html#views">Link to the view query</a>
+
+                            </p>
+
+                        
+
+                    </li> <br><br><br>
+                    <h1>Queries to database search</h1> <br>
+                    <p>
+                        In addition to store informations, the database can be used also to retrieve some information depending on what is needed.  
+                        Here are some examples of that:<br><br>
+
+                        <h3>Searching for customer names who made field bookings but did not rent any equipment</h3><br>
+                        <pre>
+SELECT firstname,lastname, fields.price_hourly, equipments.price_hourly FROM bookings
+INNER JOIN customers
+ON customers.id=bookings.customer
+INNER JOIN equipments
+ON equipments.equipmentID=bookings.equipment_type
+INNER JOIN fields
+ON fields.fieldID=bookings.field
+WHERE equipment_type=4;
+                        </pre>
+
+                        <p>
+                            <img src="img/f1.png" alt=""><br><br><br>
+
+                        </p>
+                        
+
+                        
+
+                        
+                        <h3>Let’s say that customer wants to confirm which day and time was his/her booking</h3> <br>
+                        <pre>
+SELECT start_time, end_time
+FROM bookings
+WHERE customer = 
+(SELECT id
+FROM customers
+WHERE firstname="Kirsi" AND lastname="Mäkilä");
+                        </pre>
+                        
+
+
+                    </p>
+
+                    <p>
+                        <img src="img/f2.png" alt=""><br><br>
+                        
+
+                    </p>
+                    
+                </ul>
+             
+                  
+    
+            </div><br>
+
+            
+
+            <hr>
+
+            <div class="divs" id="limitations">
+                <h1>Database future improvements </h1><br>
+                <li>1.The database UI has been designed for owner of the fields and not for customers, so customers won't be able to make bookings themselves.
+                    Thinking a way customers would have own UI to make bookings themselves without calling or visiting the office is one of the 
+                    improvements that should be made. 
+                </li><br>
+                <li>2.Automating the calculation of the total price a customer has to pay(field price + equipment price) because now it’s done manually.
+                </li><br>
+                <li>3.Creating a customers rewarding system that keeps track of the number of booking records for a specific customer even after their booking has been deleted, 
+                    so that they would get bonuses if for example they book many times.</li>
+
+            </div>
+
+            <div id="assessment" class="divs">
+                <h2>Self assessment</h2>
+                <h5>Jean de Dieu Niyigaba</h5>
+                <p>
+                    This project has taken me more time than I thought It would take in the beginning. 
+                    We spent about 12 hrs in our group meeting sessions. During the meetings we could plan together what to do and then share tasks to work on later independently. 
+                    In the beginning we had no plan to make a UI, but since it might increase our grade, i tried anyway and my teammate approved it! 
+                    I wrote triggers and view queries, filled tables with informations, made Ms access connection to mysql database, created forms which designs were later edited by my teammate. 
+                    I have also wrote half of the html report. I did not write down how many hours I used on the access and html part, but its surely over 20 hrs. 
+                    The outcome of this project might not be the best but in my opinion it is better than what I was expecting from the beginning, but I think it was worth to do it since I got the opportunity to practice and understand deeply what I learned from the course. 
+                    Based on what I said above I would give myself a <b>4 </b> grade for this project. 
+                      
+
+                </p>
+                <h5>Bella</h5>
+                <p>
+                    We had together meetings via Teams about 4-5 times where we did overall planning how get this project forward. Above that I did the queries with EER diagram. I inserted information in mysql manually writing and Jean via MS Access to test it works. We took UI version in use because it worked better. I didn’t have skills to html or MS Access so I better leave credentials out of those and thank Jean for very impressive job of managing those well. I was also looking what to write into html file and how to convert files to transparent. And also a bit visual element of UI backgrounds. All files used in this work are licensed so we are not breaking any copyright terms. 
+
+                    It’s hard to give myself scores because I am not the IT professional here so I trust the professional to give the right points. Because professional can see things above in more detailed way. 
+                </p>
+
+
+
+            </div>
+
+        </div>
+        <hr>
+
+        <div class="divs" id="members">
+            <h2>Tietokannat TTC2020-3014</h2>
+            <h4>Group members</h4>
+            
+                <li>-Jean de Dieu Niyigaba(AB5120)</li>
+                <li>-Bella(AB5122)</li>
+                
+
+            
+        </div>
+        
+
+
+    </div>
+    
+</body>
+</html>

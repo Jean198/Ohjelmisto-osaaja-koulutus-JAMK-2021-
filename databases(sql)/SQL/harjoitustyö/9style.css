@@ -1,0 +1,49 @@
+html{
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+
+    
+ }
+ 
+ 
+a{
+    text-decoration: none;
+    color:yellow;
+    
+
+    
+}
+ 
+ body{
+     margin: 0 auto;
+     font-family:'Libre Baskerville', serif;
+}
+
+#body{
+    /*text-align: left;*/
+}
+
+#container{
+    margin: 0 auto;
+   
+    background-color: #010461;
+    color: white;
+    width: 70%;
+    height:auto;
+    padding: 100px;
+    border:solid 1px;
+    text-align:left;
+
+    
+}
+img{
+    
+    border-radius: 5px;
+    width:60%;
+    height: auto;
+
+}
+
+pre{
+    color:yellow;
+}

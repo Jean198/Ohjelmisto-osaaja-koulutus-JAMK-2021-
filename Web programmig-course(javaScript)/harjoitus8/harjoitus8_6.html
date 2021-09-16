@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harjoitus8_6</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        body {width: 400px; margin: auto}
+
+        .box {
+            border: 1px dashed #000; padding: 15px; background-color: #adbed8;
+          }
+       
+      
+       </style>
+</head>
+<body>
+    <div id="ratkaisu" class="box"></div>
+
+    <script type="text/babel">
+
+
+ class Carcalculator extends React.Component {
+
+	constructor(props) {
+	    super(props);
+        this.onImageClicked = this.onImageClicked.bind(this);
+        this.state = {carSaldo:[0, 0]};
+
+    }
+
+    //-----------------------------------------------
+    
+    onImageClicked(index) {
+        var car1counter=this.state.carSaldo[0];
+        var car2counter=this.state.carSaldo[1];
+        
+        
+        if (index=="car1"){
+            //alert(index)
+           car1counter++;
+        }
+
+        else if (index=="car2"){
+            car2counter++;
+        }
+
+        this.setState({carSaldo:[car1counter,car2counter]});
+         
+    
+    }
+
+    //-----------------------------------------------------
+
+	render() {
+	    return (
+	      <div>
+            <p>Car1: {this.state.carSaldo[0]}</p>
+            <a href="#"><img id= "img1" src="car1.jpg" onClick={this.onImageClicked.bind(this,"car1")}/></a>
+            <p>Car2: {this.state.carSaldo[1]}</p>
+            <a href="#"><img id="img2"  src="car2.jpg" onClick={this.onImageClicked.bind(this,"car2")}/></a>
+        </div>
+	    );
+	  }
+
+    }
+    //----------------------------------------------------------
+	
+
+    ReactDOM.render(
+        <Carcalculator />,
+        document.getElementById('ratkaisu')
+      );
+
+    </script>
+    
+</body>
+</html>
