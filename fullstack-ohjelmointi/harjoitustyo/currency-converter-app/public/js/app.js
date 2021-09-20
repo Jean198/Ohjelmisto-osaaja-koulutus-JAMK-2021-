@@ -38,7 +38,7 @@ forexForm.addEventListener('submit',(ev)=>{
         response.json().then(data => {
             console.log(data.rates)
             
-            currencyDisplay.innerHTML=data.rates[targetcurr]*amount.value + " "
+            currencyDisplay.innerHTML=(data.rates[targetcurr]*amount.value).toFixed(2) + " "
             
         })
         

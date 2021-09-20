@@ -41,11 +41,11 @@
 #output{
 
     
-    width: 30%;
+    width: 40%;
     display: inline-block;
     padding: 5px;
     color: white;
-    font-size: 2em;
+    font-size: 35px;
 
 }
 
@@ -59,8 +59,9 @@
     outline-offset: 4px;
     font-weight: 600;
     border: 1px solid white;
-    background-color: white;
+    background-color: orange;
     transition-property: background-color, border-color;
+    color: white;
     width: 100px;
     padding: 15px 10px;
     border-radius: 8px;
@@ -69,11 +70,15 @@
 
 }
 #button:hover{
-    background-color: #63a4ff;
+    background-color: #F46120;
     box-shadow: 1px 1px white;
     color: white;
+}
+#button:active{
+    width:97px;
 }
 
 #currencyNameDisplay{
     color:yellow;
+    font-size: 35px;
 }

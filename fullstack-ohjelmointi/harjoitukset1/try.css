@@ -1,0 +1,12 @@
+#screen1{
+    background-color: green;
+    width:50%;
+    height:200px;
+}
+
+#screen2{
+    background-color: yellow;
+    width:50%;
+    height:200px;
+    margin-top:20px
+}
