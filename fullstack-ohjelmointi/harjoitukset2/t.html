@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    
+
+<div id="results"></div>
+ 
+<script>
+ 
+var counter = 0;
+ 
+function myFunction() {​​​​​​
+var myVar = setInterval(fireworksFunction, 2000);
+ }​​​​​​
+ 
+function fireworksFunction() {​​​​​​
+counter += 1;
+document.getElementById("results").innerHTML += "Nice fireworks!<br>";
+if (counter == 5){​​​​​​
+clearInterval(myVar);
+ }​​​​​​
+ }​​​​​​
+ 
+myFunction()
+ 
+</script>
+
+
+    
+</body>
+</html>

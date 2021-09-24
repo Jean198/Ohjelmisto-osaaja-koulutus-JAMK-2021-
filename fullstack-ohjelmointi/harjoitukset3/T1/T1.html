@@ -32,11 +32,11 @@
 <body>
     <div id="container">
         <div id="links">
-            <a href="#" id="img1">KUVA1</a>
+            <a href="#" id="1" onclick="printPicture(this)">KUVA1</a>
             |
-            <a href="#" id="img2">KUVA2</a>
+            <a href="#" id="2" onclick="printPicture(this)">KUVA2</a>
             |
-            <a href="#" id="img3">KUVA3</a>
+            <a href="#" id="3" onclick="printPicture(this)">KUVA3</a>
 
             
             
@@ -46,17 +46,19 @@
     </div>
 
     <script>
-        
-        document.getElementById("img1").onclick=function(){
-            document.getElementById("display").src="img1.jpg";
-            }
-        document.getElementById("img2").onclick=function(){
-                 document.getElementById("display").src="img2.jpg";
-                }
-        document.getElementById("img3").onclick=function(){
-                    document.getElementById("display").src="img3.jpg";
-                    }
+
+
+        function printPicture(a){
+
+            const links=document.querySelectorAll("a");
+
+            document.getElementById("display").src= "img"+a.id+".jpg";
+        }
+
     </script>
     
 </body>
 </html>
+
+
+

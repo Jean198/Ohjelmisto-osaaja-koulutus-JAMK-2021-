@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tehtävä 3</title>
+    <style>
+        #container{
+            width:300px;
+            border: solid;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+            
+        }
+
+        #inputdiv{
+            border: solid;
+            margin: 0 auto;
+            width: 70%;
+            text-align: center;
+            padding:30px;
+            
+            
+        }
+
+        #container input{
+            width: 30px;
+            margin-left: 10px;
+            text-align: center;
+        }
+
+        
+    </style>
+
+   
+</head>
+<body>
+    <div id="container">
+        <div id="inputdiv">
+            <table>
+                <tr>
+                    <td>T1</td>
+                    <td>T2</td>
+                    <td>T3</td>
+                    <td>T4</td>
+
+                </tr>
+                    
+                
+
+                <tr>
+                    <td><input type="text"  id ="i1" onblur="printGrade()" value="0"></td>
+                    <td><input type="text"  id ="i2" onblur="printGrade()" value="0"></td>
+                    <td><input type="text"  id ="i3" onblur="printGrade()" value="0"></td>
+                    <td><input type="text"  id ="i4" onblur="printGrade()" value="0"></td>
+                </tr>
+            </table>
+        </div>
+        <p>Pistemäärä (summa): <span id="sum"> </span> </p>
+        <p>Arvosana: <span id="grad"></span></p>
+    </div>
+
+    <script>
+        function printGrade(){
+
+            const points=[];
+            let summa=0;
+            const inputs =document.getElementsByTagName("input");
+
+            for (const input of inputs){
+
+                const value=parseInt(input.value)
+                
+                if(isNaN(value) || value<0 ||value >6){
+                    raiseError();
+                    return;
+                    }
+                summa=summa+ parseInt(input.value);
+
+            }
+
+            const grade=getGrade(summa);
+
+            document.getElementById("sum").innerHTML= summa;
+            document.getElementById("grad").innerHTML= grade;
+            
+        
+    }
+
+    function getGrade(points){
+        if(points<=12){
+            return 0;
+        }else if (points<=15){
+            return 1;
+        }else{
+            return 5;
+        
+    }
+
+}
+
+    function raiseError(){
+        document.getElementById('sum').innerHTML="Error";
+        document.getElementById('grade').innerHTML="Error";
+    }
+</script>
+
+    
+    
+</body>
+</html>

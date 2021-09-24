@@ -71,13 +71,16 @@
             let inputT4= parseInt(document.querySelector("#i4").value);
             
                 if((inputT1>=0 &&inputT1<=6)&& (inputT2>=0 &&inputT2<=6)&& (inputT3>=0 &&inputT3<=6)&& (inputT4>=0 &&inputT4<=6)){
+
                     function getGrade() {
 
                 
                         sumPoints=(inputT1+inputT2+inputT3+inputT4);
                         return sumPoints
                         }
+
                     totalPoints=getGrade()
+                    
                     document.getElementById("sum").innerHTML=totalPoints;
                   
                     function calculategrade(){
