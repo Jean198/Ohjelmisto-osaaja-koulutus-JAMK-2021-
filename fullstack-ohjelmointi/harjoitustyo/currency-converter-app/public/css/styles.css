@@ -80,5 +80,16 @@
 
 #currencyNameDisplay{
     color:yellow;
-    font-size: 35px;
+    font-size: 30px;
+}
+
+#currencyDisplay{
+    transition: 2.5s;
+}
+
+.changesize{
+    color:red;
+    
+
+    
 }

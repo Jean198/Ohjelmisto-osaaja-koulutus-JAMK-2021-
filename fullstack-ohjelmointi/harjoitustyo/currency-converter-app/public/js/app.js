@@ -30,11 +30,22 @@ forexForm.addEventListener('submit',(ev)=>{
     const targetcurr1=displayCurrency();
     currencyNameDisplay.innerHTML=targetcurr1
 
+    setInterval(() => {
+        currencyDisplay.classList.add("changesize");
+        
+        
+    }, 1000);
+    setInterval(() => {
+        
+        currencyDisplay.classList.remove("changesize");
+        
+    }, 2000);
+
     setTimeout(() => {
 
     const targetcurr=displayCurrency(); 
 
-    fetch('http://data.fixer.io/api/2013-12-24?access_key=d2118023c7b08fd86e4ba6b3405390e6&base=EUR&symbols='+targetcurr).then(response => {
+    fetch('http://api.exchangeratesapi.io/v1/latest?access_key=cfb063591e74ecbd7b37a4cd1a187357&base=EUR&symbols='+targetcurr).then(response => {
         response.json().then(data => {
             console.log(data.rates)
             

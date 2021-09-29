@@ -1,10 +1,12 @@
 const express= require('express');
 const app=express();
 const path=require('path')
-const forexData=require('../utils/forexData');
+
 const hbs=require('hbs')
 
 const axios=require('axios')
+
+var port=process.env.PORT || 3000;
 
 
 
@@ -25,7 +27,7 @@ app.get('',(req,res)=>{
     })
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Forex server started!')
 })
 
