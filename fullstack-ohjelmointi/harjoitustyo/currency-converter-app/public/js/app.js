@@ -45,7 +45,7 @@ forexForm.addEventListener('submit',(ev)=>{
 
     const targetcurr=displayCurrency(); 
 
-    fetch('http://api.exchangeratesapi.io/v1/latest?access_key=cfb063591e74ecbd7b37a4cd1a187357&base=EUR&symbols='+targetcurr).then(response => {
+    fetch('https://api.exchangeratesapi.io/v1/latest?access_key=cfb063591e74ecbd7b37a4cd1a187357&base=EUR&symbols='+targetcurr).then(response => {
         response.json().then(data => {
             console.log(data.rates)
             
