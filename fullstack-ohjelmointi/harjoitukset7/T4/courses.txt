@@ -1,0 +1,4 @@
+{
+  "coursename": "Ohjelmointi",
+  "credits": 4,
+}

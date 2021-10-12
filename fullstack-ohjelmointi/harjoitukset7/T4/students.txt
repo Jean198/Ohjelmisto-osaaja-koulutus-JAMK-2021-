@@ -1,0 +1,122 @@
+{
+    "lastname": "Niyigaba",
+    "firstname": "Jean",
+    "birthdate": "2001-11-11",
+    "eyecolor": "Sininen",
+    "incomes": 12345,
+    "taxrate": 1.5,
+    "hometown": "615d86097eaecde6cc477c31"
+
+  }
+
+
+  {
+    "lastname": "Guru",
+    "firstname": "Ken",
+    "birthdate": "2001-11-11",
+    "eyecolor": "Ruskea",
+    "incomes": 12010.12,
+    "taxrate": 5.10,
+    "hometown": "615d86097eaecde6cc477c31"
+
+  }
+
+  {
+    "lastname": "Saurus",
+    "firstname": "Tino",
+    "birthdate": "2002-11-11",
+    "eyecolor": "Ruskea",
+    "incomes": 14010.22,
+    "taxrate": 6.20,
+    "hometown": "615d86097eaecde6cc477c31"
+
+  }
+{
+    "lastname": "Tiainen",
+    "firstname": "Sini",
+    "birthdate": "2003-11-11",
+    "eyecolor": "Sininen",
+    "incomes": 16010.32,
+    "taxrate": 7.30,
+    "hometown": "615d86097eaecde6cc477c31"
+
+  }
+  {
+    "lastname": "Vainio",
+    "firstname": "Vilja",
+    "birthdate": "2004-11-11",
+    "eyecolor": "Sininen",
+    "incomes": 0.00,
+    "taxrate": 0.00,
+    "hometown": "615d86207eaecde6cc477c35"
+
+  }
+
+  {
+    "lastname": "Vainio",
+    "firstname": "Elo",
+    "birthdate": "2005-11-11",
+    "eyecolor": "Sininen",
+    "incomes": 0.00,
+    "taxrate": 0.00,
+    "hometown": "615d86207eaecde6cc477c35"
+
+  }
+
+  {
+    "lastname": "Rahainen",
+    "firstname": "Muu",
+    "birthdate": "2006-11-11",
+    "eyecolor": "Harmaa",
+    "incomes": 13010.12,
+    "taxrate": 5.80,
+    "hometown": "615d86177eaecde6cc477c33"
+
+  }
+
+  {
+    "lastname": "Alainen",
+    "firstname": "Kim",
+    "birthdate": "2007-11-11",
+    "eyecolor": "",
+    "incomes": 18010.12,
+    "taxrate": 8.80,
+    "hometown": "615d86177eaecde6cc477c33"
+
+  }
+
+  {
+    "lastname": "Ana",
+    "firstname": "Ruut",
+    "birthdate": "2008-11-11",
+    "eyecolor": "",
+    "incomes": 20010.12,
+    "taxrate": 9.90,
+    "hometown": ""
+
+  }
+
+  {
+    "lastname": "Pukki",
+    "firstname": "Teemu",
+    "birthdate": "2009-11-11",
+    "eyecolor": "Sininen",
+    "incomes": 100000.00,
+    "taxrate": 23.00,
+    "hometown": "615d86287eaecde6cc477c37"
+
+  }
+
+  {
+    "lastname": "Kamala",
+    "firstname": "Guen",
+    "birthdate": "2010-11-11",
+    "eyecolor": "Harmaa",
+    "incomes": 800000.00,
+    "taxrate": 19.00,
+    "hometown": "615d86347eaecde6cc477c39"
+
+  }
+
+  mongodb+srv://Jean:<password>@democluster.rafje.mongodb.net/test
+

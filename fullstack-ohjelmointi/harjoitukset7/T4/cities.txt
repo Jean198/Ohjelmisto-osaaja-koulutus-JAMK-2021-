@@ -1,0 +1,26 @@
+
+{
+  "cityname": "Turku",
+  "population": 190000
+},
+  
+{
+  "cityname": "Tampere",
+  "population": 230000
+},
+{
+  "cityname": "Lahti",
+  "population": 120000
+},
+{
+  "cityname": "Lappeenranta",
+  "population": 72288
+},
+{
+  "cityname": "Kouvola",
+  "population": 81778
+},
+{
+  "cityname": "Mikkeli",
+  "population": 62288
+}

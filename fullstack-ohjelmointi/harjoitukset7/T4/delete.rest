@@ -1,0 +1,20 @@
+POST http://localhost:3000/students
+Content-Type: application/json
+
+{
+   "lastname": "Ana",
+    "firstname": "Ruut",
+    "birthdate": "2008-11-11",
+    "eyecolor": "",
+    "incomes": 20010.12,
+    "taxrate": 9.90,
+    "hometown": "",
+    "grades":[{"courseId":"615d8f1a720890c174f98918", "courseGrade":4 }, {"courseId":"615d8f04720890c174f98916", "grade":5 } ]
+
+
+  }
+
+
+
+
+

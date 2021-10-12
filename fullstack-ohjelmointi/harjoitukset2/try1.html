@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tehtävä 6</title>
+</head>
+<body>
+
+<h1>Laske luvut</h1>
+
+    <form id="f">
+        <input type=text id="n1" value="1"><br><br>
+        <input type=text id="n2" value="13"><br><br>
+        <input type=text id="n3" value="13"><br><br>
+        <input type=text id="n4" value="20"><br><br>
+        <button type="button" onclick="whenIclick()">Laske</button>
+    </form>
+
+<p><br></p>
+
+<div id="vauhtitesti"></div>
+<div id="vauhtitesti1"></div>
+
+<script>
+function whenIclick(){
+
+let n1 = document.getElementById("n1").value;
+let n2= document.getElementById("n2").value;
+let n3= document.getElementById("n3").value;
+let n4= document.getElementById("n4").value;
+
+class Vauhtilaskin {
+
+    constructor(tunnit, minuutit, sekunnit, kilometrit) {
+        this.tunnit = tunnit;
+        this.minuutit = minuutit;
+        this.sekunnit = sekunnit;
+        this.kilometrit = kilometrit;
+    }
+
+    calcKmhPace() {
+        
+        let Tunnit = parseInt(this.tunnit)+(parseInt(this.minuutit)*60+parseInt(this.sekunnit))/3600;
+        let Kmh = this.kilometrit/Tunnit;  
+
+        return Kmh
+    }
+
+    calcMinkmPace() {
+       
+        //this.sekunnit = sekunnitPerKm;
+        let Sekunnit = parseInt(this.tunnit)*60*60+parseInt(this.minuutit )*60+parseInt(this.sekunnit);
+        let sekunnitPerKm = Sekunnit/this.kilometrit;
+        let Minuutit = 0;
+            while (sekunnitPerKm >= 60) {
+            Minuutit++;
+            sekunnitPerKm = sekunnitPerKm - 60;
+            }
+            sekunnitPerKm = Math.round(sekunnitPerKm);
+        return Minuutit + ":" + Sekunnit
+    }
+  
+}
+
+document.getElementById("vauhtitesti").innerHTML = new Vauhtilaskin(n1,n2,n3,n4).calcKmhPace() 
+document.getElementById("vauhtitesti1").innerHTML = new Vauhtilaskin(n1,n2,n3,n4).calcMinkmPace()
+
+}
+
+</script>
+    
+</body>
+</html>

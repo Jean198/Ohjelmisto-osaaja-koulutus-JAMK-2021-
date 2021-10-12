@@ -12,6 +12,8 @@ const amount= document.getElementById("amount")
 dateDisplay.textContent=new Date().getDate() +'-'+ new Date().getMonth()+'-'+new Date().getFullYear()
 
 
+
+
 // Getting the value of a selected option................................................................................
 function displayCurrency(){
     var currency= document.getElementById("select");
@@ -45,7 +47,7 @@ forexForm.addEventListener('submit',(ev)=>{
 
     const targetcurr=displayCurrency(); 
 
-    fetch('https://api.exchangeratesapi.io/v1/latest?access_key=cfb063591e74ecbd7b37a4cd1a187357&base=EUR&symbols='+targetcurr).then(response => {
+    fetch('http://api.exchangeratesapi.io/v1/latest?access_key=cfb063591e74ecbd7b37a4cd1a187357&base=EUR&symbols='+targetcurr).then(response => {
         response.json().then(data => {
             console.log(data.rates)
             

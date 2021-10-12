@@ -2,11 +2,14 @@ const express= require('express');
 const app=express();
 const path=require('path')
 
+
 const hbs=require('hbs')
 
 const axios=require('axios')
 
 var port=process.env.PORT || 3000;
+
+require('dotenv').config();
 
 
 
@@ -27,9 +30,15 @@ app.get('',(req,res)=>{
     })
 })
 
+
+
 app.listen(port,()=>{
     console.log('Forex server started!')
 })
+
+
+
+
 
 
 

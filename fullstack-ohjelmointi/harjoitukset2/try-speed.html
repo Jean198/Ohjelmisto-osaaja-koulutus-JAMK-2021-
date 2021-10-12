@@ -1,0 +1,74 @@
+<h1>Laske luvut</h1>
+<form id="f">   <!--f can be any name also-->
+
+    <input type=text id="n1" value="1"><br><br>
+
+    <input type=text id="n2" value="13"><br><br>
+
+    <input type=text id="n3" value="13"><br><br>
+
+    <input type=text id="n4" value="20"><br><br>
+
+    <button type="button" onclick="laSkin3(f.n1.value, f.n2.value, f.n3.value, f.n4.value)">Laske</button> <!--you can remove form and f-->
+
+</form>
+
+<p id="display"></p>
+
+<script>
+    // kmh-laskentaa
+    
+    function laSkin(tunnit, minutes, sekunnit, kilometrit) {
+    
+    var tunnit = parseInt(tunnit)+(parseInt(minutes)*60+parseInt(sekunnit))/3600;
+    
+    var kmh = kilometrit/tunnit;
+    
+    return kmh;
+    
+    }
+// min.sec/km-laskentaa
+
+
+
+function laSkin2(tunnit, minutes, sekunnit, kilometrit) {
+
+    
+    
+    var sekunnit = parseInt(tunnit)*60*60+parseInt(minutes)*60+parseInt(sekunnit);
+    
+    sekunnitPerKm = sekunnit/kilometrit;
+    
+    var minutes = 0;
+    while (sekunnitPerKm >= 60){
+    
+      minutes++;
+      sekunnitPerKm = sekunnitPerKm - 60;
+    
+    }
+    
+    sekunnitPerkm = Math.round(sekunnitPerKm);
+    
+    return minutes+ ":" + sekunnitPerkm
+    
+    }
+
+function laSkin3(tunnit, minutes, sekunnit, kilometrit) {
+
+
+
+        let vauhti = laSkin(tunnit, minutes, sekunnit, kilometrit).toFixed(2);
+    
+        let minuuttiPerkilometriVauhti = laSkin2(tunnit, minutes, sekunnit, kilometrit);
+    
+        
+        document.getElementById("display").innerHTML="Laskuri: <br> " +  vauhti + " km/h: <br>" + minuuttiPerkilometriVauhti + "km";
+    
+        
+    }
+    
+    
+    
+    </script>
+    
+    
